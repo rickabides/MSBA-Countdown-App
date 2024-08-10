@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Class Today</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        // Array of Giphy embed URLs
+        const giphyURLs = [
+            "https://giphy.com/embed/ui4VjMUBGXhwgdwUnK",
+            "https://giphy.com/embed/SH5dYg10Gpjvq",
+            "https://giphy.com/embed/26hkhKd2Cp5WMWU1O",
+            "https://giphy.com/embed/zdq4DT1gHlxny",
+            "https://giphy.com/embed/dSeTdOmmA1u8e0LBsx",
+            "https://giphy.com/embed/N4K0mbaJtwLgQ",
+            "https://giphy.com/embed/DFM7sPAxpVUi0HwoQW"
+        ];
+
+        // Function to select a random Giphy URL
+        function getRandomGiphy() {
+            const index = Math.floor(Math.random() * giphyURLs.length);
+            return giphyURLs[index];
+        }
+
+        // Function to set the Giphy URL in the iframe when the window loads
+        window.onload = function() {
+            const iframe = document.createElement('iframe');
+            iframe.src = getRandomGiphy();
+            iframe.width = "480";
+            iframe.height = "400";
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.className = "giphy-embed";
+            document.getElementById('giphyContainer').appendChild(iframe);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1>No class today!</h1>
+                <div id="giphyContainer" class="mb-3"></div> <!-- Container for the Giphy iframe -->
+                <div class="row mt-4">
+                    <div class="col-6 text-right">
+                        <a href="/" class="btn btn-secondary">Return Home</a>
+                    </div>
+                    <div class="col-6 text-left">
+                        <a href="https://sites.google.com/dominican.edu/bsb-graduate-programs/calendars" class="btn btn-info">MSBA Calendar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
